@@ -1,6 +1,5 @@
 {
   "name": "next-ui-lib",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "types": "dist/index.d.ts",
