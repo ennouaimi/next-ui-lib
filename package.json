@@ -29,8 +29,8 @@
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "react": "^16.8 || ^17 || ^18",
-    "react-dom": "^16.8 || ^17 || ^18"
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.1",
