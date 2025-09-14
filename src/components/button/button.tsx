@@ -1,6 +1,6 @@
 import { buttonColors, type ButtonColor } from "../../constants/colors";
 
-interface ButtonProps {
+export interface ButtonProps {
   label: string;
   onClick: () => void;
   color?: ButtonColor;
