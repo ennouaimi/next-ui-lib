@@ -16,7 +16,10 @@ export default defineConfig({
       formats: ['es', 'cjs', 'umd'],
     }, 
     rollupOptions: { 
-      external: Object.keys(peerDependencies),
+      external: [
+        ...Object.keys(peerDependencies),
+        "react/jsx-runtime", // 👈 very important!
+      ],
       output: { globals: { react: 'React', 'react-dom': 'ReactDOM' } } 
     }
   },
