@@ -12,8 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: "Click me",
-    variant: "default",
-    size: "default",
+    label: "Button",
+    onClick: () => alert("Button clicked"),
   },
 };
