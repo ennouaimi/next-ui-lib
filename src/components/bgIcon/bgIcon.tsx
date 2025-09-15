@@ -1,34 +1,41 @@
 import { buttonColors, type ButtonColor } from "../../constants/colors";
+import { ReactNode } from "react";
 
 export interface ButtonProps {
   onClick: () => void;
   color?: ButtonColor;
   customClass?: string;
+  iconSrc?: string;
 }
 
 const BgIcon = ({
   color = "primary",
   onClick,
   customClass = "",
+  iconSrc,
 }: ButtonProps) => {
-  const sizeClasses = {
-    small: "px-2 py-1 text-xs rounded-lg",
-    medium: "px-3 py-1 text-base rounded-xl",
-    large: "px-8 py-3 text-2xl rounded-2xl",
-    full: "px-8 py-2 text-xl rounded-2xl w-full",
-  };
-
   const colorSet = buttonColors[color];
 
   return (
     <button
-      className="w-12 h-12 rounded-lg flex items-center justify-center cursor-pointer"
-      onClick={() => {}}
+      className={`w-12 h-12 rounded-lg flex items-center justify-center cursor-pointer transition duration-150 ease-in-out whitespace-nowrap active:translate-y-[4px] ${customClass}`}
+      onClick={onClick}
       style={{
         backgroundColor: colorSet.value,
         boxShadow: `0 4px 0 ${colorSet.dark}`,
       }}
-    ></button>
+    >
+      <span className="text-2xl">
+        <img
+          style={{
+            maxWidth: "1.2em",
+            maxHeight: "1.2em",
+            display: "inline-block",
+          }}
+          src={iconSrc}
+        />
+      </span>
+    </button>
   );
 };
 

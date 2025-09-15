@@ -6,7 +6,7 @@ import {
   CardContent,
   CardFooter,
 } from "../ui/card";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { Button } from "../button";
 import { BgIcon } from "../bgIcon";
 
@@ -15,20 +15,26 @@ type CardProps = {
   description?: string;
   children?: ReactNode;
   customClass?: string;
-  button?: boolean; // show/hide button
-  buttonLabel?: string; // button text
-  buttonPosition?: "top-right" | "bottom-right"; // button location
-  onButtonClick?: () => void; // button click handler
+  button?: boolean;
+  buttonLabel?: string;
+  buttonColor?: "primary" | "secondary" | "amber" | "cyan";
+  bgIconColor?: "primary" | "secondary" | "amber" | "cyan";
+  buttonPosition?: "top-right" | "bottom-right";
+  iconSrc?: string;
+  onButtonClick?: () => void;
 };
 
 export const Card = ({
   title,
   description,
   children,
+  iconSrc,
   customClass = "",
   button = false,
   buttonLabel = "Button",
   buttonPosition = "top-right",
+  bgIconColor = "primary",
+  buttonColor = "primary",
   onButtonClick,
 }: CardProps) => {
   const handleButtonClick = onButtonClick ?? (() => {});
@@ -45,10 +51,16 @@ export const Card = ({
       {(title || description || (button && buttonPosition === "top-right")) && (
         <CardHeader className="mb-4 flex items-start justify-between">
           <div className="flex items-center gap-3">
-            <BgIcon color="amber" onClick={() => {}} />
+            {iconSrc && (
+              <BgIcon
+                color={bgIconColor}
+                iconSrc={iconSrc}
+                onClick={() => {}}
+              ></BgIcon>
+            )}
             <div>
               {title && (
-                <CardTitle className="text-base sm:text-lg md:text-xl font-bold">
+                <CardTitle className="text-base sm:text-lg md:text-xl font-semibold">
                   {title}
                 </CardTitle>
               )}
@@ -65,23 +77,25 @@ export const Card = ({
               label={buttonLabel}
               size="medium"
               onClick={handleButtonClick}
-              color="amber"
+              color={buttonColor}
             />
           )}
         </CardHeader>
       )}
 
       {children && (
-        <CardContent className="flex flex-col gap-3">{children}</CardContent>
+        <CardContent className="flex flex-col gap-3 font-regular">
+          {children}
+        </CardContent>
       )}
 
       {button && buttonPosition === "bottom-right" && (
-        <CardFooter className="flex justify-end pt-4">
+        <CardFooter className="flex justify-end pt-2">
           <Button
             label={buttonLabel}
             size="medium"
             onClick={handleButtonClick}
-            color="amber"
+            color={buttonColor}
           />
         </CardFooter>
       )}

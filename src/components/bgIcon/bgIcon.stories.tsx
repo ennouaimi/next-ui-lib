@@ -13,6 +13,8 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     color: "amber",
+    iconSrc:
+      "https://cdn.jsdelivr.net/npm/emoji-datasource-google@15.0.1/img/google/64/1f34a.png",
     onClick: () => {},
   },
 };
