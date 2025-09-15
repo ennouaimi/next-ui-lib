@@ -6,12 +6,10 @@ const meta = {
   component: Card,
   tags: ["docsPage"],
   argTypes: {
-    title: {
-      control: { type: "text" },
-    },
-    description: {
-      control: { type: "text" },
-    },
+    title: { control: "text" },
+    description: { control: "text" },
+    children: { control: "text" },
+    customClass: { control: "text" },
   },
 } satisfies Meta<typeof Card>;
 
@@ -22,5 +20,24 @@ export const Primary: Story = {
   args: {
     title: "Card Title",
     description: "This is a card",
+    children:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    button: true,
+    buttonLabel: "More Info",
+    buttonPosition: "top-right",
+    onButtonClick: () => {},
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    title: "Card Title",
+    description: "This is a card",
+    children:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    button: true,
+    buttonLabel: "More Info",
+    buttonPosition: "bottom-right",
+    onButtonClick: () => {},
   },
 };

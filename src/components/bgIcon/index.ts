@@ -1,0 +1,1 @@
+export { BgIcon } from './bgIcon'
