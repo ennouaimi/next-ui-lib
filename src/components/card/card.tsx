@@ -9,6 +9,7 @@ import {
 import { ReactNode } from "react";
 import { Button } from "../button";
 import { BgIcon } from "../bgIcon";
+import { ButtonColor } from "@/constants/colors";
 
 type CardProps = {
   title?: string;
@@ -17,8 +18,9 @@ type CardProps = {
   customClass?: string;
   button?: boolean;
   buttonLabel?: string;
-  buttonColor?: "primary" | "secondary" | "amber" | "cyan";
-  bgIconColor?: "primary" | "secondary" | "amber" | "cyan";
+  buttonColor?: ButtonColor;
+  buttonVariant?: "primary" | "secondary";
+  bgIconColor?: ButtonColor;
   buttonPosition?: "top-right" | "bottom-right";
   iconSrc?: string;
   onButtonClick?: () => void;
@@ -33,8 +35,9 @@ export const Card = ({
   button = false,
   buttonLabel = "Button",
   buttonPosition = "top-right",
-  bgIconColor = "primary",
-  buttonColor = "primary",
+  bgIconColor = "lightBlue",
+  buttonColor = "lightBlue",
+  buttonVariant = "primary",
   onButtonClick,
 }: CardProps) => {
   const handleButtonClick = onButtonClick ?? (() => {});
@@ -78,6 +81,7 @@ export const Card = ({
               size="medium"
               onClick={handleButtonClick}
               color={buttonColor}
+              variant={buttonVariant}
             />
           )}
         </CardHeader>
@@ -96,6 +100,7 @@ export const Card = ({
             size="medium"
             onClick={handleButtonClick}
             color={buttonColor}
+            variant={buttonVariant}
           />
         </CardFooter>
       )}
