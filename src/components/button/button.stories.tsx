@@ -14,6 +14,5 @@ export const Primary: Story = {
   args: {
     label: "Button",
     onClick: () => {},
-    customClass: "text-red-500",
   },
 };

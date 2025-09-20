@@ -4,15 +4,17 @@ export interface ButtonProps {
   label: string;
   onClick: () => void;
   color?: ButtonColor;
+  variant?: "primary" | "secondary";
   size?: "small" | "medium" | "large" | "full";
   customClass?: string;
 }
 
 const Button = ({
-  color = "primary",
+  color = "lightBlue",
   onClick,
   label,
   size = "medium",
+  variant = "primary",
   customClass = "",
 }: ButtonProps) => {
   const sizeClasses = {
@@ -28,15 +30,25 @@ const Button = ({
     <button
       className={`relative flex items-center justify-center cursor-pointer transition duration-150 ease-in-out whitespace-nowrap active:translate-y-[4px] ${sizeClasses[size]} ${customClass}`}
       style={{
-        backgroundColor: colorSet.value,
-        boxShadow: `0 ${size === "large" ? "6px" : "4px"} 0 ${colorSet.dark}`,
-        color: colorSet.text,
+        backgroundColor:
+          variant == "primary"
+            ? colorSet.primary.value
+            : colorSet.secondary.value,
+        boxShadow: `0 ${size === "large" ? "6px" : "4px"} 0 ${
+          variant == "primary" ? colorSet.primary.dark : colorSet.secondary.dark
+        }`,
+        color:
+          variant == "primary"
+            ? colorSet.primary.text
+            : colorSet.secondary.text,
       }}
       onMouseDown={(e) => {
         e.currentTarget.style.boxShadow = "none";
       }}
       onMouseUp={(e) => {
-        e.currentTarget.style.boxShadow = `0 4px 0 ${colorSet.dark}`;
+        e.currentTarget.style.boxShadow = `0 4px 0 ${
+          variant == "primary" ? colorSet.primary.dark : colorSet.secondary.dark
+        }`;
       }}
       onClick={onClick}
     >
