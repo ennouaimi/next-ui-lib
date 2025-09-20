@@ -9,7 +9,7 @@ export interface ButtonProps {
 }
 
 const BgIcon = ({
-  color = "primary",
+  color = "amber",
   onClick,
   customClass = "",
   iconSrc,
@@ -21,8 +21,8 @@ const BgIcon = ({
       className={`w-12 h-12 rounded-lg flex items-center justify-center cursor-pointer transition duration-150 ease-in-out whitespace-nowrap active:translate-y-[4px] ${customClass}`}
       onClick={onClick}
       style={{
-        backgroundColor: colorSet.value,
-        boxShadow: `0 4px 0 ${colorSet.dark}`,
+        backgroundColor: colorSet.primary.value,
+        boxShadow: `0 4px 0 ${colorSet.primary.dark}`,
       }}
     >
       <span className="text-2xl">
