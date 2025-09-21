@@ -23,6 +23,7 @@ type CardProps = {
   bgIconColor?: ButtonColor;
   buttonPosition?: "top-right" | "bottom-right";
   iconSrc?: string;
+  buttonSize?: "small" | "medium" | "large" | "full";
   onButtonClick?: () => void;
 };
 
@@ -38,6 +39,7 @@ export const Card = ({
   bgIconColor = "lightBlue",
   buttonColor = "lightBlue",
   buttonVariant = "primary",
+  buttonSize = "medium",
   onButtonClick,
 }: CardProps) => {
   const handleButtonClick = onButtonClick ?? (() => {});
@@ -63,7 +65,7 @@ export const Card = ({
             )}
             <div>
               {title && (
-                <CardTitle className="text-base sm:text-lg md:text-xl font-semibold">
+                <CardTitle className="text-main text-xl font-gabaritoBold font-medium leading-5 sm:text-lg md:text-xl">
                   {title}
                 </CardTitle>
               )}
@@ -78,7 +80,7 @@ export const Card = ({
           {button && buttonPosition === "top-right" && (
             <Button
               label={buttonLabel}
-              size="medium"
+              size={buttonSize}
               onClick={handleButtonClick}
               color={buttonColor}
               variant={buttonVariant}
@@ -97,7 +99,7 @@ export const Card = ({
         <CardFooter className="flex justify-end pt-2">
           <Button
             label={buttonLabel}
-            size="medium"
+            size={buttonSize}
             onClick={handleButtonClick}
             color={buttonColor}
             variant={buttonVariant}
