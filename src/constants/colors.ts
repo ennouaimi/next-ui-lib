@@ -13,4 +13,8 @@ export const buttonColors = {
   }
 } as const;
 
+export const staticColors = {
+  Gray: { value: '#F1F1F1' }
+} as const;
+
 export type ButtonColor = keyof typeof buttonColors;

@@ -13,6 +13,16 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     label: "Button",
+    color: "amber",
+    onClick: () => {},
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    label: "Button",
+    color: "amber",
+    variant: "secondary",
     onClick: () => {},
   },
 };
