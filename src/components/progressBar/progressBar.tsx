@@ -34,9 +34,7 @@ const ProgressBar = ({
       <div className="flex flex-col ml-3 flex-1">
         {/* Label + Percentage */}
         <div className="flex justify-between mb-1 items-end">
-          {label && (
-            <p className="font-semibold text-gray-800 text-lg">{label}</p>
-          )}
+          {label && <p className="font-semibold text-sec text-md">{label}</p>}
           {showPercentage && (
             <span className="text-base text-gray-500">{percentage}%</span>
           )}
