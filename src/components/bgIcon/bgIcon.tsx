@@ -1,9 +1,9 @@
-import { buttonColors, type ButtonColor } from "../../constants/colors";
+import { colors, ColorName } from "../../constants/colors";
 import { ReactNode } from "react";
 
 export interface ButtonProps {
   onClick: () => void;
-  color?: ButtonColor;
+  color?: ColorName;
   customClass?: string;
   iconSrc?: string;
 }
@@ -14,15 +14,15 @@ const BgIcon = ({
   customClass = "",
   iconSrc,
 }: ButtonProps) => {
-  const colorSet = buttonColors[color];
+  const colorSet = colors[color];
 
   return (
     <button
       className={`w-12 h-12 rounded-lg flex items-center justify-center cursor-pointer transition duration-150 ease-in-out whitespace-nowrap active:translate-y-[4px] ${customClass}`}
       onClick={onClick}
       style={{
-        backgroundColor: colorSet.primary.value,
-        boxShadow: `0 4px 0 ${colorSet.primary.dark}`,
+        backgroundColor: colorSet.value,
+        boxShadow: `0 4px 0 ${colorSet.dark}`,
       }}
     >
       <span className="text-2xl">

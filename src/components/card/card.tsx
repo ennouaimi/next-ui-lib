@@ -9,7 +9,7 @@ import {
 import { ReactNode } from "react";
 import { Button } from "../button";
 import { BgIcon } from "../bgIcon";
-import { ButtonColor } from "@/constants/colors";
+import { ButtonColor, ColorName } from "@/constants/colors";
 
 type CardProps = {
   title?: string;
@@ -20,7 +20,7 @@ type CardProps = {
   buttonLabel?: string;
   buttonColor?: ButtonColor;
   buttonVariant?: "primary" | "secondary";
-  bgIconColor?: ButtonColor;
+  bgIconColor?: ColorName;
   buttonPosition?: "top-right" | "bottom-right";
   iconSrc?: string;
   buttonSize?: "small" | "medium" | "large" | "full";
@@ -36,7 +36,7 @@ export const Card = ({
   button = false,
   buttonLabel = "Button",
   buttonPosition = "top-right",
-  bgIconColor = "lightBlue",
+  bgIconColor = "amber",
   buttonColor = "lightBlue",
   buttonVariant = "primary",
   buttonSize = "medium",

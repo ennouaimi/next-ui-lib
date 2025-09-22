@@ -1,13 +1,14 @@
 import {
-  ButtonColor,
   buttonColors,
+  ColorName,
+  colors,
   staticColors,
 } from "../../constants/colors";
 import { BgIcon } from "../bgIcon";
 import { Card } from "../card";
 
 export interface ProgressBarProps {
-  bgIconColor?: ButtonColor;
+  bgIconColor?: ColorName;
   iconSrc?: string;
   label?: string;
   percentage?: number; // 0–100
@@ -16,14 +17,14 @@ export interface ProgressBarProps {
 }
 
 const ProgressBar = ({
-  bgIconColor = "lightBlue",
+  bgIconColor = "amber",
   iconSrc = "",
   label = "",
   percentage = 0,
   showCard = false,
   showPercentage = false,
 }: ProgressBarProps) => {
-  const colorSet = buttonColors[bgIconColor];
+  const colorSet = colors[bgIconColor];
 
   const content = (
     <div className="flex w-full items-center">
@@ -34,7 +35,7 @@ const ProgressBar = ({
       <div className="flex flex-col ml-3 flex-1">
         {/* Label + Percentage */}
         <div className="flex justify-between mb-1 items-end">
-          {label && <p className="font-semibold text-sec text-md">{label}</p>}
+          {label && <p className="font-medium text-sec text-md">{label}</p>}
           {showPercentage && (
             <span className="text-base text-gray-500">{percentage}%</span>
           )}
@@ -51,7 +52,7 @@ const ProgressBar = ({
             style={{
               width: `${percentage}%`,
               background: `linear-gradient(to right, #FFC801, #FFC801)`,
-              boxShadow: `0 1px 2px ${colorSet.primary.dark}`,
+              boxShadow: `0 1px 2px ${colorSet.dark}`,
             }}
           />
         </div>
