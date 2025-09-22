@@ -90,7 +90,7 @@ export const Card = ({
       )}
 
       {children && (
-        <CardContent className="flex flex-col gap-3 font-regular">
+        <CardContent className="flex flex-col gap-4 font-regular">
           {children}
         </CardContent>
       )}
