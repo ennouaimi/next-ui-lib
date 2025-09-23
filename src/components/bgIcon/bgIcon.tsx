@@ -1,3 +1,4 @@
+import { Emoji } from "../Emoji/emoji";
 import { colors, ColorName } from "../../constants/colors";
 import { ReactNode } from "react";
 
@@ -6,6 +7,7 @@ export interface ButtonProps {
   color?: ColorName;
   customClass?: string;
   iconSrc?: string;
+  emojiId?: string;
 }
 
 const BgIcon = ({
@@ -13,6 +15,7 @@ const BgIcon = ({
   onClick,
   customClass = "",
   iconSrc,
+  emojiId,
 }: ButtonProps) => {
   const colorSet = colors[color];
 
@@ -26,14 +29,17 @@ const BgIcon = ({
       }}
     >
       <span className="text-2xl">
-        <img
-          style={{
-            maxWidth: "1.2em",
-            maxHeight: "1.2em",
-            display: "inline-block",
-          }}
-          src={iconSrc}
-        />
+        {iconSrc && (
+          <img
+            style={{
+              maxWidth: "1.2em",
+              maxHeight: "1.2em",
+              display: "inline-block",
+            }}
+            src={iconSrc}
+          />
+        )}
+        {emojiId && <Emoji id={emojiId} set="google" />}
       </span>
     </button>
   );
