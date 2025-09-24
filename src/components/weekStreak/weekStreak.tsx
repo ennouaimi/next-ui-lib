@@ -19,7 +19,7 @@ const WeekStreak = ({
   loading = false,
 }: WeekStreakProps) => {
   return (
-    <div className="flex w-full rounded-lg pt-2">
+    <div className="flex w-full rounded-lg pt-3">
       <BgIcon
         emojiId={emojiId}
         color={color}

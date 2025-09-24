@@ -29,7 +29,7 @@ const ProgressBar = ({
   const colorSet = colors[bgIconColor];
 
   const content = (
-    <div className="flex w-full items-center pt-2">
+    <div className="flex w-full items-center pt-3">
       <BgIcon
         color={bgIconColor}
         iconSrc={iconSrc}
