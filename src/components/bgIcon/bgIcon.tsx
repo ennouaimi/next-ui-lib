@@ -26,7 +26,7 @@ const BgIcon = ({
         className={`w-12 h-12 rounded-lg animate-pulse ${customClass}`}
         style={{
           backgroundColor: "#F1F1F1",
-          boxShadow: `0 4px 0 #d1d1d1`, // slightly darker shadow for depth
+          boxShadow: `0 4px 0 #e2e2e2`,
         }}
       />
     );
