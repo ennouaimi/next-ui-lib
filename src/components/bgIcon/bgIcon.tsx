@@ -1,6 +1,5 @@
 import { Emoji } from "../Emoji/emoji";
 import { colors, ColorName } from "../../constants/colors";
-import { ReactNode } from "react";
 
 export interface ButtonProps {
   onClick: () => void;
@@ -8,6 +7,7 @@ export interface ButtonProps {
   customClass?: string;
   iconSrc?: string;
   emojiId?: string;
+  loading?: boolean;
 }
 
 const BgIcon = ({
@@ -16,8 +16,21 @@ const BgIcon = ({
   customClass = "",
   iconSrc,
   emojiId,
+  loading = false,
 }: ButtonProps) => {
   const colorSet = colors[color];
+
+  if (loading) {
+    return (
+      <div
+        className={`w-12 h-12 rounded-lg animate-pulse ${customClass}`}
+        style={{
+          backgroundColor: "#F1F1F1",
+          boxShadow: `0 4px 0 #d1d1d1`, // slightly darker shadow for depth
+        }}
+      />
+    );
+  }
 
   return (
     <button

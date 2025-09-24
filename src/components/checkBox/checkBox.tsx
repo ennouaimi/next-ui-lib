@@ -4,10 +4,30 @@ export interface CheckBoxProps {
   color?: ColorName;
   completed: boolean;
   size?: number;
+  loading?: boolean;
 }
 
-const CheckBox = ({ color = "amber", completed, size = 20 }: CheckBoxProps) => {
+const CheckBox = ({
+  color = "amber",
+  completed,
+  size = 20,
+  loading = false,
+}: CheckBoxProps) => {
   const colorSet = colors[color];
+
+  if (loading) {
+    return (
+      <div
+        className="rounded-full animate-pulse"
+        style={{
+          width: size,
+          height: size,
+          backgroundColor: "#F1F1F1",
+          border: "1px solid #e9e9e9",
+        }}
+      />
+    );
+  }
 
   return completed ? (
     <div
