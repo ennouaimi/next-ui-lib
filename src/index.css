@@ -697,6 +697,10 @@ body {
   height: 0px;
 }
 
+.h-1\/3 {
+  height: 33.333333%;
+}
+
 .h-10 {
   height: 2.5rem;
 }
@@ -713,20 +717,16 @@ body {
   height: 1.5rem;
 }
 
-.h-\[30\%\] {
-  height: 30%;
-}
-
 .h-full {
   height: 100%;
 }
 
-.h-1\/3 {
-  height: 33.333333%;
-}
-
 .w-0 {
   width: 0px;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .w-10 {
@@ -739,10 +739,6 @@ body {
 
 .w-16 {
   width: 4rem;
-}
-
-.w-2\/4 {
-  width: 50%;
 }
 
 .w-3\/4 {
@@ -761,16 +757,8 @@ body {
   width: 1.5rem;
 }
 
-.w-\[82\%\] {
-  width: 82%;
-}
-
 .w-full {
   width: 100%;
-}
-
-.w-1\/2 {
-  width: 50%;
 }
 
 .max-w-full {
@@ -1088,11 +1076,6 @@ body {
 
 .tracking-tight {
   letter-spacing: -0.025em;
-}
-
-.text-\[\#374151\] {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
 }
 
 .text-card-foreground {

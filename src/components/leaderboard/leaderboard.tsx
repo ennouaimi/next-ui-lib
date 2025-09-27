@@ -1,11 +1,11 @@
 import { ButtonColor, ColorName, colors } from "../../constants/colors";
 import { Card } from "../card";
 
-// Type for leaderboard profiles
 export interface Profile {
   username: string;
   xp: number;
   avatarUrl?: string;
+  selected: boolean;
 }
 
 export interface LeaderboardProps {
@@ -19,7 +19,7 @@ export interface LeaderboardProps {
 const Leaderboard = ({
   profiles,
   loading = false,
-  buttonColor = "amber",
+  buttonColor = "lightBlue",
   buttonLabel = "more",
 }: LeaderboardProps) => {
   return (
@@ -28,6 +28,7 @@ const Leaderboard = ({
       button={true}
       buttonColor={buttonColor}
       buttonLabel={buttonLabel}
+      buttonSize="small"
     >
       <section className="flex flex-col space-y-3 h-full">
         {loading
@@ -47,14 +48,12 @@ const Leaderboard = ({
               <article
                 key={index}
                 className={`flex items-center space-x-4 px-3 py-1 rounded-lg cursor-pointer ${
-                  profile.username === "Brandon"
+                  profile.selected
                     ? "border-2 border-[#ffd700] bg-[#ffecb3] hover:border-[#FFC200] hover:bg-[#FFE08A]"
                     : "hover:bg-gray-100 hover:cursor-pointer"
                 }`}
               >
-                <p className="text-lg font-gabaritoBold text-[#374151] w-4">
-                  {index + 1}
-                </p>
+                <p className="text-lg font-bold text-sec w-4">{index + 1}</p>
                 <div className="w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
                   <img
                     src={profile.avatarUrl}
@@ -65,9 +64,7 @@ const Leaderboard = ({
                 <p className="flex-grow text-lg font-gabaritoMedium text-sec">
                   {profile.username}
                 </p>
-                <p className="text-sm font-gabaritoRegular text-[#374151]">
-                  {profile.xp} XP
-                </p>
+                <p className="text-sm font-regular text-sec">{profile.xp} XP</p>
               </article>
             ))}
       </section>
