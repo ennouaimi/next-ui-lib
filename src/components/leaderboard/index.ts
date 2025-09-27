@@ -1,1 +1,1 @@
-export { ProgressBar } from './leaderboard'
+export { Leaderboard } from './leaderboard'
