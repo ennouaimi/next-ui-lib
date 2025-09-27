@@ -697,6 +697,10 @@ body {
   height: 0px;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
 .h-12 {
   height: 3rem;
 }
@@ -709,12 +713,24 @@ body {
   height: 1.5rem;
 }
 
+.h-\[30\%\] {
+  height: 30%;
+}
+
 .h-full {
   height: 100%;
 }
 
+.h-1\/3 {
+  height: 33.333333%;
+}
+
 .w-0 {
   width: 0px;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .w-12 {
@@ -725,16 +741,36 @@ body {
   width: 4rem;
 }
 
+.w-2\/4 {
+  width: 50%;
+}
+
 .w-3\/4 {
   width: 75%;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.w-4\/5 {
+  width: 80%;
 }
 
 .w-6 {
   width: 1.5rem;
 }
 
+.w-\[82\%\] {
+  width: 82%;
+}
+
 .w-full {
   width: 100%;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .max-w-full {
@@ -743,6 +779,10 @@ body {
 
 .flex-1 {
   flex: 1 1 0%;
+}
+
+.flex-grow {
+  flex-grow: 1;
 }
 
 .translate-x-full {
@@ -816,6 +856,24 @@ body {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -864,6 +922,11 @@ body {
   border-bottom-width: 4px;
 }
 
+.border-\[\#ffd700\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 215 0 / var(--tw-border-opacity, 1));
+}
+
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
@@ -871,6 +934,16 @@ body {
 
 .border-opacity-80 {
   --tw-border-opacity: 0.8;
+}
+
+.bg-\[\#F0F0F1\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(240 240 241 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[\#ffecb3\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 236 179 / var(--tw-bg-opacity, 1));
 }
 
 .bg-amber-500 {
@@ -900,6 +973,11 @@ body {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.object-cover {
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .p-2 {
@@ -968,6 +1046,11 @@ body {
   line-height: 1.5rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1005,6 +1088,11 @@ body {
 
 .tracking-tight {
   letter-spacing: -0.025em;
+}
+
+.text-\[\#374151\] {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
 }
 
 .text-card-foreground {
@@ -1203,6 +1291,25 @@ body {
 
 .react-switch-label:active .react-switch-button {
   width: 60px;
+}
+
+.hover\:cursor-pointer:hover {
+  cursor: pointer;
+}
+
+.hover\:border-\[\#FFC200\]:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(255 194 0 / var(--tw-border-opacity, 1));
+}
+
+.hover\:bg-\[\#FFE08A\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 224 138 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-gray-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
 }
 
 .active\:translate-y-\[4px\]:active {
