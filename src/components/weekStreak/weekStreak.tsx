@@ -36,7 +36,7 @@ const WeekStreak = ({
             }}
           ></p>
         ) : (
-          <p className="font-gabaritoMedium text-sec mb-1">{label}</p>
+          <p className="text-sec mb-1">{label}</p>
         )}
         <div className="flex space-x-2">
           {Object.entries(records).map(([_, completed]) => (

@@ -48,7 +48,7 @@ const ProgressBar = ({
                 }}
               />
             ) : (
-              <p className="font-medium text-sec text-md">{label}</p>
+              <p className="text-sec text-md">{label}</p>
             ))}
 
           {showPercentage && (
