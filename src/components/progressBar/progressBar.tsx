@@ -69,8 +69,8 @@ const ProgressBar = ({
               className="absolute top-0 left-0 h-full rounded-2xl transition-all duration-300"
               style={{
                 width: `${percentage}%`,
-                background: `linear-gradient(to right, #FFC801, #FFC801)`,
-                boxShadow: `0 1px 2px ${colorSet.dark}`,
+                backgroundColor: "#FFC801",
+                boxShadow: "0 1px 2px #CC9F00",
               }}
             />
           </div>

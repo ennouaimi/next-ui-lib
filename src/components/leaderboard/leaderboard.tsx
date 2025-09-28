@@ -30,7 +30,7 @@ const Leaderboard = ({
       buttonLabel={buttonLabel}
       buttonSize="small"
     >
-      <section className="flex flex-col space-y-3 h-full">
+      <section className="flex flex-col h-full">
         {loading
           ? [...Array(10)].map((_, index) => (
               <article
