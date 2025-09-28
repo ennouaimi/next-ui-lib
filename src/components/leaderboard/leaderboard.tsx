@@ -47,7 +47,7 @@ const Leaderboard = ({
           : profiles.map((profile, index) => (
               <article
                 key={index}
-                className={`flex items-center space-x-4 px-3 py-1 rounded-lg cursor-pointer ${
+                className={`flex items-center px-3 py-1 rounded-lg cursor-pointer ${
                   profile.selected
                     ? "border-2 border-[#ffd700] bg-[#ffecb3] hover:border-[#FFC200] hover:bg-[#FFE08A]"
                     : "hover:bg-gray-100 hover:cursor-pointer"
@@ -61,7 +61,7 @@ const Leaderboard = ({
                     className="inline select-none pointer-events-none object-cover"
                   />
                 </div>
-                <p className="flex-grow text-lg font-gabaritoMedium text-sec">
+                <p className="ml-2 flex-grow text-lg font-gabaritoMedium text-sec">
                   {profile.username}
                 </p>
                 <p className="text-sm font-regular text-sec">{profile.xp} XP</p>
