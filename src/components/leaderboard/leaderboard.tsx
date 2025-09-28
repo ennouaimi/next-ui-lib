@@ -30,7 +30,7 @@ const Leaderboard = ({
       buttonLabel={buttonLabel}
       buttonSize="small"
     >
-      <section className="flex flex-col h-full">
+      <section className="flex flex-col space-y-2 h-full">
         {loading
           ? [...Array(10)].map((_, index) => (
               <article
@@ -47,14 +47,14 @@ const Leaderboard = ({
           : profiles.map((profile, index) => (
               <article
                 key={index}
-                className={`flex items-center px-3 py-1 rounded-lg cursor-pointer ${
+                className={`flex items-center py-1 rounded-lg cursor-pointer ${
                   profile.selected
                     ? "border-2 border-[#ffd700] bg-[#ffecb3] hover:border-[#FFC200] hover:bg-[#FFE08A]"
                     : "hover:bg-gray-100 hover:cursor-pointer"
                 }`}
               >
                 <p className="text-lg font-bold text-sec w-4">{index + 1}</p>
-                <div className="w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
+                <div className="ml-2 w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
                   <img
                     src={profile.avatarUrl}
                     alt={`${profile.username} avatar`}
