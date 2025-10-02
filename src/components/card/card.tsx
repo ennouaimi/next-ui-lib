@@ -48,7 +48,7 @@ export const Card = ({
       className={`
         w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl
         border-2 border-b-4 border-gray-200 border-opacity-80
-        px-4 sm:px-6 py-4 sm:py-6 rounded-xl h-full
+        px-4 sm:px-6 py-4 sm:py-6 rounded-xl
         flex flex-col relative
         ${customClass}
       `}
