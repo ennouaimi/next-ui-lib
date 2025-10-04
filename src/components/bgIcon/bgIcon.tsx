@@ -8,6 +8,7 @@ export interface BgIconProps {
   iconSrc?: string;
   emojiId?: string;
   loading?: boolean;
+  isRect?: boolean;
 }
 
 const BgIcon = ({
@@ -17,6 +18,7 @@ const BgIcon = ({
   iconSrc,
   emojiId,
   loading = false,
+  isRect = false,
 }: BgIconProps) => {
   const colorSet = colors[color];
 
@@ -34,7 +36,9 @@ const BgIcon = ({
 
   return (
     <button
-      className={`w-12 h-12 rounded-lg flex items-center justify-center cursor-pointer transition duration-150 ease-in-out whitespace-nowrap active:translate-y-[4px] ${customClass}`}
+      className={`${
+        isRect ? "w-14 h-16" : "w-12 h-12"
+      }  rounded-lg flex items-center justify-center cursor-pointer transition duration-150 ease-in-out whitespace-nowrap active:translate-y-[4px] ${customClass}`}
       onClick={onClick}
       style={{
         backgroundColor: colorSet.value,

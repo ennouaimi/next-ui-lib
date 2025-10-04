@@ -12,7 +12,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    label: "Complete 7 days streak",
+    label: "Streak",
+    description: "Complete 7 days streak",
     bgIconColor: "amber",
     percentage: 70,
     showCard: true,

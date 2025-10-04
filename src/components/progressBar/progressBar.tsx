@@ -11,6 +11,7 @@ export interface ProgressBarProps {
   bgIconColor?: ColorName;
   iconSrc?: string;
   label?: string;
+  description?: string;
   percentage?: number;
   showCard?: boolean;
   showPercentage?: boolean;
@@ -21,6 +22,7 @@ const ProgressBar = ({
   bgIconColor = "amber",
   iconSrc = "",
   label = "",
+  description = "",
   percentage = 0,
   showCard = false,
   showPercentage = false,
@@ -32,10 +34,11 @@ const ProgressBar = ({
         color={bgIconColor}
         iconSrc={iconSrc}
         loading={loading}
+        isRect={description != null}
         onClick={() => {}}
       />
       <div className="flex flex-col ml-3 flex-1">
-        <div className="flex justify-between mb-1 items-end">
+        <div className="flex justify-between items-end">
           {label &&
             (loading ? (
               <p
@@ -51,6 +54,11 @@ const ProgressBar = ({
 
           {showPercentage && (
             <span className="text-base text-gray-500">{percentage}%</span>
+          )}
+        </div>
+        <div className="flex justify-between mb-1 items-end">
+          {description && (
+            <span className="text-base text-gray-600">{description}</span>
           )}
         </div>
         {loading ? (
