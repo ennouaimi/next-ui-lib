@@ -17,7 +17,7 @@ type CardProps = {
   children?: ReactNode;
   customClass?: string;
   button?: boolean;
-  buttonLabel?: string;
+  buttonLabel?: string | null;
   buttonColor?: ButtonColor;
   buttonVariant?: "primary" | "secondary";
   bgIconColor?: ColorName;
@@ -33,8 +33,7 @@ export const Card = ({
   children,
   iconSrc,
   customClass = "",
-  button = false,
-  buttonLabel = "Button",
+  buttonLabel = null,
   buttonPosition = "top-right",
   bgIconColor = "amber",
   buttonColor = "lightBlue",
@@ -53,7 +52,9 @@ export const Card = ({
         ${customClass}
       `}
     >
-      {(title || description || (button && buttonPosition === "top-right")) && (
+      {(title ||
+        description ||
+        (buttonLabel && buttonPosition === "top-right")) && (
         <CardHeader className="mb-4 flex items-start justify-between">
           <div className="flex items-center gap-3">
             {iconSrc && (
@@ -77,7 +78,7 @@ export const Card = ({
             </div>
           </div>
 
-          {button && buttonPosition === "top-right" && (
+          {buttonLabel && buttonPosition === "top-right" && (
             <Button
               label={buttonLabel}
               size={buttonSize}
@@ -95,7 +96,7 @@ export const Card = ({
         </CardContent>
       )}
 
-      {button && buttonPosition === "bottom-right" && (
+      {buttonLabel && buttonPosition === "bottom-right" && (
         <CardFooter className="flex justify-end pt-2">
           <Button
             label={buttonLabel}

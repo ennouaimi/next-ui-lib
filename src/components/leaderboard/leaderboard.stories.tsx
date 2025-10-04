@@ -86,5 +86,6 @@ export const Loading: Story = {
     profiles: dummyProfiles,
     bgIconColor: "amber",
     loading: true,
+    customClass: "w-16",
   },
 };

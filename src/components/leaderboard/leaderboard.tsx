@@ -13,7 +13,7 @@ export interface LeaderboardProps {
   bgIconColor?: ColorName;
   loading?: boolean;
   buttonColor?: ButtonColor;
-  buttonLabel?: string;
+  buttonLabel?: string | null;
   customClass?: string;
 }
 
@@ -21,13 +21,12 @@ const Leaderboard = ({
   profiles,
   loading = false,
   buttonColor = "lightBlue",
-  buttonLabel = "more",
+  buttonLabel = null,
   customClass = "",
 }: LeaderboardProps) => {
   return (
     <Card
       title="Leaderboard"
-      button={true}
       buttonColor={buttonColor}
       buttonLabel={buttonLabel}
       buttonSize="small"
@@ -35,7 +34,7 @@ const Leaderboard = ({
     >
       <section className="flex flex-col space-y-2">
         {loading
-          ? [...Array(10)].map((_, index) => (
+          ? [...Array(8)].map((_, index) => (
               <article
                 key={index}
                 className="flex w-full rounded-md h-1/3 space-x-2 animate-pulse"
@@ -50,7 +49,7 @@ const Leaderboard = ({
           : profiles.map((profile, index) => (
               <article
                 key={index}
-                className={`flex items-center py-1 rounded-lg cursor-pointer ${
+                className={`flex items-center p-1 rounded-lg cursor-pointer ${
                   profile.selected
                     ? "border-2 border-[#ffd700] bg-[#ffecb3] hover:border-[#FFC200] hover:bg-[#FFE08A]"
                     : "hover:bg-gray-100 hover:cursor-pointer"

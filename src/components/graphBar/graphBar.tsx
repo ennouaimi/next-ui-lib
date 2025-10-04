@@ -1,28 +1,33 @@
-// GraphBar.tsx
-import React from "react";
-import { Card } from "../card";
-import { ResponsiveBar, BarDatum } from "@nivo/bar";
+"use client";
 
-export type DataItem = {
-  day: string;
-  consistency: number;
-};
+import React from "react";
+import { ResponsiveBar } from "@nivo/bar";
+import { Card } from "../card";
+import { ButtonColor } from "@/constants/colors";
 
 export interface GraphBarProps {
-  days: string[];
+  data: Array<Record<any, any>>;
+  loading?: boolean;
+  buttonColor?: ButtonColor;
+  buttonLabel?: string;
+  customClass?: string;
 }
 
-const GraphBar: React.FC<GraphBarProps> = ({ days = [] }) => {
-  // Deterministic test data
-  const data: DataItem[] = days.map((day, index) => ({
-    day,
-    consistency: 20 + index * 10,
-  }));
-
-  const loading = false;
-
+export const GraphBar: React.FC<GraphBarProps> = ({
+  data,
+  loading = false,
+  buttonColor = "lightBlue",
+  buttonLabel = null,
+  customClass = "",
+}) => {
   return (
-    <Card title="Consistency" button buttonLabel="more" buttonSize="small">
+    <Card
+      title="Consistency"
+      buttonColor={buttonColor}
+      buttonLabel={buttonLabel}
+      buttonSize="small"
+      customClass={customClass}
+    >
       <ResponsiveBar
         data={data}
         keys={["consistency"]}
@@ -37,8 +42,9 @@ const GraphBar: React.FC<GraphBarProps> = ({ days = [] }) => {
             ticks: {
               text: {
                 fontSize: 12,
-                fill: "#6E6E6E",
-                fontFamily: "gabaritoMedium",
+                fill: "#535353ff",
+                fontWeight: "bold",
+                fontFamily: "gabarito",
               },
             },
           },
@@ -86,7 +92,7 @@ const GraphBar: React.FC<GraphBarProps> = ({ days = [] }) => {
           "legends",
         ]}
         tooltip={({ id, value }) =>
-          !loading && (
+          !loading ? (
             <div
               style={{
                 padding: 8,
@@ -94,17 +100,14 @@ const GraphBar: React.FC<GraphBarProps> = ({ days = [] }) => {
                 borderRadius: 6,
                 fontSize: 12,
                 color: "#374151",
-                fontFamily: "gabaritoBold",
                 border: `2px solid #E0E7F6`,
               }}
             >
               {id}: {Math.floor(value as number)}%
             </div>
-          )
+          ) : null
         }
       />
     </Card>
   );
 };
-
-export { GraphBar };

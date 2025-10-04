@@ -26,8 +26,6 @@ const ProgressBar = ({
   showPercentage = false,
   loading = false,
 }: ProgressBarProps) => {
-  const colorSet = colors[bgIconColor];
-
   const content = (
     <div className="flex w-full items-center pt-1">
       <BgIcon
