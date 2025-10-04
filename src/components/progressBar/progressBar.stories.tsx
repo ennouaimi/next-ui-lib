@@ -10,7 +10,18 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const WithoutDescription: Story = {
+  args: {
+    label: "Complete 7 days streak",
+    bgIconColor: "amber",
+    percentage: 70,
+    showCard: true,
+    iconSrc:
+      "https://cdn.jsdelivr.net/npm/emoji-datasource-google@15.0.1/img/google/64/1f34a.png",
+  },
+};
+
+export const WithDescription: Story = {
   args: {
     label: "Streak",
     description: "Complete 7 days streak",

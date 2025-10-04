@@ -11,7 +11,7 @@ export interface ProgressBarProps {
   bgIconColor?: ColorName;
   iconSrc?: string;
   label?: string;
-  description?: string;
+  description?: string | null;
   percentage?: number;
   showCard?: boolean;
   showPercentage?: boolean;
@@ -22,7 +22,7 @@ const ProgressBar = ({
   bgIconColor = "amber",
   iconSrc = "",
   label = "",
-  description = "",
+  description = null,
   percentage = 0,
   showCard = false,
   showPercentage = false,
@@ -34,7 +34,7 @@ const ProgressBar = ({
         color={bgIconColor}
         iconSrc={iconSrc}
         loading={loading}
-        isRect={description != null}
+        isRect={!!description}
         onClick={() => {}}
       />
       <div className="flex flex-col ml-3 flex-1">
