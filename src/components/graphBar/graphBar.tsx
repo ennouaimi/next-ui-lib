@@ -44,7 +44,7 @@ export const GraphBar: React.FC<GraphBarProps> = ({
                 fontSize: 12,
                 fill: "#535353ff",
                 fontWeight: "bold",
-                fontFamily: "gabarito",
+                fontFamily: "inherit",
               },
             },
           },

@@ -16,7 +16,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Informative: Story = {
   args: {
     title: "Orange",
     description: "This is an orange",
@@ -33,7 +33,7 @@ export const Primary: Story = {
   },
 };
 
-export const Secondary: Story = {
+export const Action: Story = {
   args: {
     title: "Earth !",
     description: "This is earth",
@@ -42,6 +42,21 @@ export const Secondary: Story = {
     button: true,
     buttonLabel: "More Info",
     buttonPosition: "bottom-right",
+    buttonColor: "cyan",
+    bgIconColor: "cyan",
+    iconSrc:
+      "https://cdn.jsdelivr.net/npm/emoji-datasource-google@15.0.1/img/google/64/1f30d.png",
+    onButtonClick: () => {},
+  },
+};
+
+export const WithoutContent: Story = {
+  args: {
+    title: "Earth !",
+    description: "This is earth",
+    button: true,
+    buttonLabel: "More Info",
+    buttonPosition: "top-right",
     buttonColor: "cyan",
     bgIconColor: "cyan",
     iconSrc:

@@ -55,7 +55,11 @@ export const Card = ({
       {(title ||
         description ||
         (buttonLabel && buttonPosition === "top-right")) && (
-        <CardHeader className="mb-4 flex items-start justify-between">
+        <CardHeader
+          className={`flex items-start justify-between ${
+            children ? "mb-4" : ""
+          }`}
+        >
           <div className="flex items-center gap-3">
             {iconSrc && (
               <BgIcon
@@ -66,7 +70,7 @@ export const Card = ({
             )}
             <div>
               {title && (
-                <CardTitle className="text-main text-xl font-gabaritoBold font-medium leading-5 sm:text-lg md:text-xl">
+                <CardTitle className="text-main text-xl font-bold font-medium leading-5 sm:text-lg md:text-xl">
                   {title}
                 </CardTitle>
               )}
@@ -85,6 +89,7 @@ export const Card = ({
               onClick={handleButtonClick}
               color={buttonColor}
               variant={buttonVariant}
+              customClass={` ${children ? "" : "mb-1 mt-auto"}`}
             />
           )}
         </CardHeader>

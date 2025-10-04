@@ -5,3 +5,4 @@ export * from "./components/toggle/toggle";
 export * from "./components/weekStreak/weekStreak";
 export * from "./components/leaderBoard/leaderBoard";
 export * from "./components/graphBar/graphBar";
+export * from "./components/bgIcon/bgIcon";

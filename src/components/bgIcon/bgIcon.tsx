@@ -1,7 +1,7 @@
 import { Emoji } from "../Emoji/emoji";
 import { colors, ColorName } from "../../constants/colors";
 
-export interface ButtonProps {
+export interface BgIconProps {
   onClick: () => void;
   color?: ColorName;
   customClass?: string;
@@ -17,7 +17,7 @@ const BgIcon = ({
   iconSrc,
   emojiId,
   loading = false,
-}: ButtonProps) => {
+}: BgIconProps) => {
   const colorSet = colors[color];
 
   if (loading) {
