@@ -14,6 +14,7 @@ export interface LeaderboardProps {
   loading?: boolean;
   buttonColor?: ButtonColor;
   buttonLabel?: string;
+  customClass?: string;
 }
 
 const Leaderboard = ({
@@ -21,6 +22,7 @@ const Leaderboard = ({
   loading = false,
   buttonColor = "lightBlue",
   buttonLabel = "more",
+  customClass = "",
 }: LeaderboardProps) => {
   return (
     <Card
@@ -29,6 +31,7 @@ const Leaderboard = ({
       buttonColor={buttonColor}
       buttonLabel={buttonLabel}
       buttonSize="small"
+      customClass={customClass}
     >
       <section className="flex flex-col space-y-2">
         {loading
