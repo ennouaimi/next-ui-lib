@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Leaderboard, Profile } from "./leaderboard";
+import { LeaderBoard, Profile } from "./leaderBoard";
 
 const dummyProfiles: Profile[] = [
   {
@@ -66,9 +66,9 @@ const dummyProfiles: Profile[] = [
 
 const meta = {
   title: "Example/Leaderboard",
-  component: Leaderboard,
+  component: LeaderBoard,
   tags: ["docsPage"],
-} satisfies Meta<typeof Leaderboard>;
+} satisfies Meta<typeof LeaderBoard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

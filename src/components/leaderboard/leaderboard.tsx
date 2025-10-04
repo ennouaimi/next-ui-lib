@@ -1,4 +1,4 @@
-import { ButtonColor, ColorName, colors } from "../../constants/colors";
+import { ButtonColor, ColorName } from "../../constants/colors";
 import { Card } from "../card";
 
 export interface Profile {
@@ -17,7 +17,7 @@ export interface LeaderboardProps {
   customClass?: string;
 }
 
-const Leaderboard = ({
+const LeaderBoard = ({
   profiles,
   loading = false,
   buttonColor = "lightBlue",
@@ -49,7 +49,7 @@ const Leaderboard = ({
           : profiles.map((profile, index) => (
               <article
                 key={index}
-                className={`flex items-center p-1 rounded-lg cursor-pointer ${
+                className={`flex items-center py-1 px-2 rounded-lg cursor-pointer ${
                   profile.selected
                     ? "border-2 border-[#ffd700] bg-[#ffecb3] hover:border-[#FFC200] hover:bg-[#FFE08A]"
                     : "hover:bg-gray-100 hover:cursor-pointer"
@@ -74,4 +74,4 @@ const Leaderboard = ({
   );
 };
 
-export { Leaderboard };
+export { LeaderBoard };
