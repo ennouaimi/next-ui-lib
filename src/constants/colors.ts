@@ -27,7 +27,7 @@ export const colors = {
 export type ColorName = keyof typeof colors;
 
 export const staticColors = {
-  Gray: { value: '#F1F1F1' }
+  gray: { value: '#F1F1F1' }
 } as const;
 
 export type ButtonColor = keyof typeof buttonColors;

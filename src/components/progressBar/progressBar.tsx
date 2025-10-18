@@ -11,7 +11,7 @@ export interface ProgressBarProps {
   bgIconColor?: ColorName;
   iconSrc?: string;
   label?: string;
-  description?: string | null;
+  description?: string;
   percentage?: number;
   showCard?: boolean;
   showPercentage?: boolean;
@@ -22,7 +22,7 @@ const ProgressBar = ({
   bgIconColor = "amber",
   iconSrc = "",
   label = "",
-  description = null,
+  description,
   percentage = 0,
   showCard = false,
   showPercentage = false,
@@ -37,17 +37,11 @@ const ProgressBar = ({
         isRect={!!description}
         onClick={() => {}}
       />
-      <div className="flex flex-col ml-3 flex-1">
+      <div className="flex flex-col ml-3 flex-1 space-y-1">
         <div className="flex justify-between items-end">
           {label &&
             (loading ? (
-              <p
-                className="h-4 w-16 font-gabaritoMedium my-1 rounded-sm animate-pulse"
-                style={{
-                  backgroundColor: "#F1F1F1",
-                  border: "1px solid #e9e9e9",
-                }}
-              />
+              <p className="h-4 w-16 font-gabaritoMedium rounded-sm animate-pulse bg-gray-200" />
             ) : (
               <p className="text-sec text-md">{label}</p>
             ))}
@@ -56,21 +50,15 @@ const ProgressBar = ({
             <span className="text-base text-gray-500">{percentage}%</span>
           )}
         </div>
-        <div className="flex justify-between mb-1 items-end">
-          {description && (
-            <span className="text-base text-gray-600">{description}</span>
-          )}
-        </div>
+
+        {description && (
+          <span className="text-base text-gray-600">{description}</span>
+        )}
+
         {loading ? (
-          <div
-            className="relative w-full h-4 rounded-2xl overflow-hidden animate-pulse"
-            style={{ backgroundColor: "#F1F1F1" }}
-          ></div>
+          <div className="relative w-full h-4 rounded-2xl overflow-hidden animate-pulse bg-gray-200" />
         ) : (
-          <div
-            className="relative w-full h-4 rounded-2xl overflow-hidden"
-            style={{ backgroundColor: staticColors.Gray.value }}
-          >
+          <div className="relative w-full h-4 rounded-2xl overflow-hidden bg-gray-300">
             <div
               className="absolute top-0 left-0 h-full rounded-2xl transition-all duration-300"
               style={{
