@@ -28,6 +28,8 @@ export const WithDescription: Story = {
     bgIconColor: "amber",
     percentage: 70,
     showCard: true,
+    showProgress: true,
+    progress: "3/7 days",
     iconSrc:
       "https://cdn.jsdelivr.net/npm/emoji-datasource-google@15.0.1/img/google/64/1f34a.png",
   },

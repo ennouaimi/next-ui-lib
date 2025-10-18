@@ -12,9 +12,10 @@ export interface ProgressBarProps {
   iconSrc?: string;
   label?: string;
   description?: string;
+  progress?: string;
   percentage?: number;
   showCard?: boolean;
-  showPercentage?: boolean;
+  showProgress?: boolean;
   loading?: boolean;
 }
 
@@ -25,7 +26,8 @@ const ProgressBar = ({
   description,
   percentage = 0,
   showCard = false,
-  showPercentage = false,
+  showProgress = false,
+  progress,
   loading = false,
 }: ProgressBarProps) => {
   const content = (
@@ -43,19 +45,26 @@ const ProgressBar = ({
             (loading ? (
               <p className="h-4 w-16 font-gabaritoMedium rounded-sm animate-pulse bg-gray-200" />
             ) : (
-              <p className="text-sec text-md">{label}</p>
+              <p className="text-sec text-lg">{label}</p>
             ))}
 
-          {showPercentage && (
-            <span className="text-base text-gray-500">{percentage}%</span>
+          {showProgress && !description && (
+            <span className="text-sm text-gray-500">
+              {progress || `${percentage}%`}
+            </span>
           )}
         </div>
 
         {description && (
           <div className="flex justify-between items-end">
-            <span className="text-base font-regular text-gray-600">
+            <span className="text-sm font-regular text-gray-500">
               {description}
             </span>
+            {showProgress && (
+              <span className="text-sm text-gray-500">
+                {progress || `${percentage}%`}
+              </span>
+            )}
           </div>
         )}
 

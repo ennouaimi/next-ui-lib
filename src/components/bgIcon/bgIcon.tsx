@@ -38,7 +38,7 @@ const BgIcon = ({
     <button
       className={`${
         isRect ? "h-16" : "h-12"
-      }  w-12 rounded-lg flex items-center justify-center cursor-pointer transition duration-150 ease-in-out whitespace-nowrap active:translate-y-[4px] ${customClass}`}
+      }  w-14 rounded-lg flex items-center justify-center cursor-pointer transition duration-150 ease-in-out whitespace-nowrap active:translate-y-[4px] ${customClass}`}
       onClick={onClick}
       style={{
         backgroundColor: colorSet.value,
