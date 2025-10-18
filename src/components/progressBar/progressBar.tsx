@@ -37,7 +37,7 @@ const ProgressBar = ({
         isRect={!!description}
         onClick={() => {}}
       />
-      <div className="flex flex-col ml-3 flex-1 space-y-1">
+      <div className="flex flex-col ml-3 flex-1">
         <div className="flex justify-between items-end">
           {label &&
             (loading ? (
@@ -52,13 +52,17 @@ const ProgressBar = ({
         </div>
 
         {description && (
-          <span className="text-base text-gray-600">{description}</span>
+          <div className="flex justify-between items-end">
+            <span className="text-base font-regular text-gray-600">
+              {description}
+            </span>
+          </div>
         )}
 
         {loading ? (
           <div className="relative w-full h-4 rounded-2xl overflow-hidden animate-pulse bg-gray-200" />
         ) : (
-          <div className="relative w-full h-4 rounded-2xl overflow-hidden bg-gray-300">
+          <div className="relative w-full h-4 rounded-2xl overflow-hidden bg-gray-300 mt-1">
             <div
               className="absolute top-0 left-0 h-full rounded-2xl transition-all duration-300"
               style={{
