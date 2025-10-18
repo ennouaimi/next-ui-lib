@@ -26,7 +26,7 @@ const WeekStreak = ({
         loading={loading}
         onClick={() => {}}
       />
-      <div className="w-3/4 h-12 rounded-lg ml-2 flex flex-col justify-between border-2 border-red-500">
+      <div className="w-3/4 h-12 rounded-lg ml-2 flex flex-col justify-between">
         {loading ? (
           <p
             className="h-4 w-16 mt-1 rounded-sm"
