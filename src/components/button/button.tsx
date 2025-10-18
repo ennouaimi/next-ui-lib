@@ -10,7 +10,7 @@ export interface ButtonProps {
 }
 
 const Button = ({
-  color = "lightBlue",
+  color = "default",
   onClick,
   label,
   size = "medium",

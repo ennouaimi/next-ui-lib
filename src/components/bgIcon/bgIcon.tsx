@@ -12,7 +12,7 @@ export interface BgIconProps {
 }
 
 const BgIcon = ({
-  color = "amber",
+  color = "default",
   onClick,
   customClass = "",
   iconSrc,

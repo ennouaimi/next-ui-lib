@@ -20,7 +20,7 @@ export interface ProgressBarProps {
 }
 
 const ProgressBar = ({
-  bgIconColor = "amber",
+  bgIconColor = "default",
   iconSrc = "",
   label = "",
   description,

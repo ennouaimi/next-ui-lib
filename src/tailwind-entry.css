@@ -10,10 +10,13 @@
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
+    --primary: #1E90FF;
+    --primary-dark: #1163b6;
+    --primary-text: white;
+    --secondary: #E0F3FF;
+    --secondary-dark: #B3DFFC;
+    --secondary-text: #1CB0F6;
     --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
     --accent: 0 0% 96.1%;

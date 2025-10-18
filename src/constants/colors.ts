@@ -1,4 +1,8 @@
 export const buttonColors = {
+  default: {
+    primary: { text: 'var(--primary-text)', value: 'var(--primary)', dark: 'var(--primary-dark)' },
+    secondary: { text: 'var(--secondary-text)', value: 'var(--secondary)', dark: 'var(--secondary-dark)' }
+  },
   lightBlue: {
     primary: { text: '#FFFFFF', value: '#27a7e3', dark: '#1f8ecb' },
     secondary: { text: '#1CB0F6', value: '#E0F3FF', dark: '#B3DFFC' }
@@ -22,6 +26,7 @@ export const colors = {
   orange: { value: "#FF9800", dark: "#E68900" },
   pink: { text: "#FFFFFF", value: "#E91E63", dark: "#C2185B" },
   cyan: { text: "#FFFFFF", value: "#00BCD4", dark: "#0097A7" },
+  default: { text: "var(--primary-text)", value: "var(--primary)", dark: "var(--primary-dark)" },
 } as const;
 
 export type ColorName = keyof typeof colors;
