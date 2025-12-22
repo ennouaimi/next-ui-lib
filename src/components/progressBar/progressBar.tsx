@@ -69,9 +69,9 @@ const ProgressBar = ({
         )}
 
         {loading ? (
-          <div className="relative w-full h-4 rounded-2xl overflow-hidden animate-pulse bg-gray-200" />
+          <div className="relative w-full h-4 rounded-2xl overflow-hidden animate-pulse bg-[#F1F1F1]" />
         ) : (
-          <div className="relative w-full h-4 rounded-2xl overflow-hidden bg-gray-300 mt-1">
+          <div className="relative w-full h-4 rounded-2xl overflow-hidden bg-[#F1F1F1] mt-1">
             <div
               className="absolute top-0 left-0 h-full rounded-2xl transition-all duration-300"
               style={{
