@@ -2,7 +2,7 @@ import { buttonColors, type ButtonColor } from "../../constants/colors";
 
 export interface ButtonProps {
   label: string;
-  onClick: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   color?: ButtonColor;
   variant?: "primary" | "secondary";
   size?: "small" | "medium" | "large" | "full";
