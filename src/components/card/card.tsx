@@ -57,7 +57,7 @@ export const Card = ({
       data-component="custom-card"
       className={`
         w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl
-        border-2 border-b-4 border-gray-200 border-opacity-80
+        border-2 border-b-4 border-border
         px-4 sm:px-6 py-4 sm:py-6 rounded-xl
         flex flex-col relative
         ${customClass}
@@ -82,7 +82,7 @@ export const Card = ({
                 </CardTitle>
               )}
               {description && (
-                <CardDescription className="text-sm text-gray-600">
+                <CardDescription className="text-sm text-muted-foreground">
                   {description}
                 </CardDescription>
               )}
