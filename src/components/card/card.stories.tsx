@@ -22,7 +22,6 @@ export const Informative: Story = {
     description: "This is an orange",
     children:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    button: true,
     buttonLabel: "More Info",
     buttonPosition: "top-right",
     buttonColor: "amber",
@@ -39,7 +38,6 @@ export const Action: Story = {
     description: "This is earth",
     children:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    button: true,
     buttonLabel: "More Info",
     buttonPosition: "bottom-right",
     buttonColor: "cyan",
@@ -54,7 +52,6 @@ export const WithoutContent: Story = {
   args: {
     title: "Earth !",
     description: "This is earth",
-    button: true,
     buttonLabel: "More Info",
     buttonPosition: "top-right",
     buttonColor: "cyan",
