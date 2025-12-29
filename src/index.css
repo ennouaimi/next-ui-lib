@@ -935,6 +935,11 @@ body {
   background-color: rgb(240 240 241 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[\#F1F1F1\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 241 241 / var(--tw-bg-opacity, 1));
+}
+
 .bg-\[\#ffecb3\] {
   --tw-bg-opacity: 1;
   background-color: rgb(255 236 179 / var(--tw-bg-opacity, 1));
@@ -972,11 +977,6 @@ body {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-\[\#F1F1F1\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(241 241 241 / var(--tw-bg-opacity, 1));
 }
 
 .object-cover {

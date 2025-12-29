@@ -12,11 +12,11 @@ import { BgIcon } from "../bgIcon";
 import { ButtonColor, ColorName } from "@/constants/colors";
 
 type CardProps = {
+  asShadcnOnly?: boolean;
   title?: string;
   description?: string;
   children?: ReactNode;
   customClass?: string;
-  button?: boolean;
   buttonLabel?: string | null;
   buttonColor?: ButtonColor;
   buttonVariant?: "primary" | "secondary";
@@ -28,6 +28,7 @@ type CardProps = {
 };
 
 export const Card = ({
+  asShadcnOnly = false,
   title,
   description,
   children,
@@ -41,9 +42,19 @@ export const Card = ({
   buttonSize = "medium",
   onButtonClick,
 }: CardProps) => {
+  if (asShadcnOnly) {
+    return (
+      <ShadcnCard data-component="shadcn-card" className={customClass}>
+        {children}
+      </ShadcnCard>
+    );
+  }
+
   const handleButtonClick = onButtonClick ?? (() => {});
+
   return (
     <ShadcnCard
+      data-component="custom-card"
       className={`
         w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl
         border-2 border-b-4 border-gray-200 border-opacity-80
@@ -55,27 +66,23 @@ export const Card = ({
       {(title ||
         description ||
         (buttonLabel && buttonPosition === "top-right")) && (
-        <CardHeader
-          className={`flex items-start justify-between ${
-            children ? "mb-4" : ""
-          }`}
-        >
+        <CardHeader className="flex items-start justify-between">
           <div className="flex items-center gap-3">
             {iconSrc && (
               <BgIcon
                 color={bgIconColor}
                 iconSrc={iconSrc}
                 onClick={() => {}}
-              ></BgIcon>
+              />
             )}
             <div>
               {title && (
-                <CardTitle className="text-main text-xl font-bold font-medium leading-5 sm:text-lg md:text-xl">
+                <CardTitle className="text-main text-xl font-bold leading-5">
                   {title}
                 </CardTitle>
               )}
               {description && (
-                <CardDescription className="text-sm sm:text-base text-gray-600">
+                <CardDescription className="text-sm text-gray-600">
                   {description}
                 </CardDescription>
               )}
@@ -89,14 +96,13 @@ export const Card = ({
               onClick={handleButtonClick}
               color={buttonColor}
               variant={buttonVariant}
-              customClass={` ${children ? "" : "mb-1 mt-auto"}`}
             />
           )}
         </CardHeader>
       )}
 
       {children && (
-        <CardContent className="flex flex-col gap-4 font-regular h-full">
+        <CardContent className="flex flex-col gap-4 h-full">
           {children}
         </CardContent>
       )}
