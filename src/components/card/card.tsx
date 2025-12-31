@@ -12,44 +12,27 @@ import { BgIcon } from "../bgIcon";
 import { ButtonColor, ColorName } from "@/constants/colors";
 
 type CardProps = {
-  asShadcnOnly?: boolean;
-  title?: string | ReactNode;
-  description?: string | ReactNode;
+  title?: string;
+  description?: string;
   children?: ReactNode;
   customClass?: string;
-
-  // Footer
-  footer?: ReactNode;
-
-  // Buttons
+  button?: boolean;
   buttonLabel?: string | null;
   buttonColor?: ButtonColor;
   buttonVariant?: "primary" | "secondary";
+  bgIconColor?: ColorName;
   buttonPosition?: "top-right" | "bottom-right";
+  iconSrc?: string;
   buttonSize?: "small" | "medium" | "large" | "full";
   onButtonClick?: () => void;
-
-  // Icon
-  iconSrc?: string;
-  bgIconColor?: ColorName;
-
-  // Additional custom header content
-  customHeader?: ReactNode;
-
-  // Additional props for extreme flexibility
-  classNameHeader?: string;
-  classNameContent?: string;
-  classNameFooter?: string;
 };
 
 export const Card = ({
-  asShadcnOnly = false,
   title,
   description,
   children,
   iconSrc,
   customClass = "",
-  footer,
   buttonLabel = null,
   buttonPosition = "top-right",
   bgIconColor = "amber",
@@ -57,39 +40,25 @@ export const Card = ({
   buttonVariant = "primary",
   buttonSize = "medium",
   onButtonClick,
-  customHeader,
-  classNameHeader = "",
-  classNameContent = "",
-  classNameFooter = "",
 }: CardProps) => {
-  if (asShadcnOnly) {
-    return (
-      <ShadcnCard data-component="shadcn-card" className={customClass}>
-        {children}
-      </ShadcnCard>
-    );
-  }
-
   const handleButtonClick = onButtonClick ?? (() => {});
-
   return (
     <ShadcnCard
-      data-component="custom-card"
       className={`
         w-full max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl
-        border-2 border-b-4 border-border
+        border-2 border-b-4 border-gray-200 border-opacity-80
         px-4 sm:px-6 py-4 sm:py-6 rounded-xl
         flex flex-col relative
         ${customClass}
       `}
     >
-      {/* Header */}
       {(title ||
         description ||
-        customHeader ||
         (buttonLabel && buttonPosition === "top-right")) && (
         <CardHeader
-          className={`flex items-start justify-between ${classNameHeader}`}
+          className={`flex items-start justify-between ${
+            children ? "mb-4" : ""
+          }`}
         >
           <div className="flex items-center gap-3">
             {iconSrc && (
@@ -97,27 +66,20 @@ export const Card = ({
                 color={bgIconColor}
                 iconSrc={iconSrc}
                 onClick={() => {}}
-              />
+              ></BgIcon>
             )}
             <div>
-              {title &&
-                (typeof title === "string" ? (
-                  <CardTitle className="text-main text-xl font-bold leading-5">
-                    {title}
-                  </CardTitle>
-                ) : (
-                  title
-                ))}
-              {description &&
-                (typeof description === "string" ? (
-                  <CardDescription className="text-sm text-muted-foreground">
-                    {description}
-                  </CardDescription>
-                ) : (
-                  description
-                ))}
+              {title && (
+                <CardTitle className="text-main text-xl font-bold font-medium leading-5 sm:text-lg md:text-xl">
+                  {title}
+                </CardTitle>
+              )}
+              {description && (
+                <CardDescription className="text-sm sm:text-base text-gray-600">
+                  {description}
+                </CardDescription>
+              )}
             </div>
-            {customHeader}
           </div>
 
           {buttonLabel && buttonPosition === "top-right" && (
@@ -127,23 +89,20 @@ export const Card = ({
               onClick={handleButtonClick}
               color={buttonColor}
               variant={buttonVariant}
+              customClass={` ${children ? "" : "mb-1 mt-auto"}`}
             />
           )}
         </CardHeader>
       )}
 
-      {/* Content */}
       {children && (
-        <CardContent
-          className={`flex flex-col gap-4 h-full ${classNameContent}`}
-        >
+        <CardContent className="flex flex-col gap-4 font-regular h-full">
           {children}
         </CardContent>
       )}
 
-      {/* Footer button */}
-      {buttonLabel && buttonPosition === "bottom-right" && !footer && (
-        <CardFooter className={`flex justify-end pt-2 ${classNameFooter}`}>
+      {buttonLabel && buttonPosition === "bottom-right" && (
+        <CardFooter className="flex justify-end pt-2">
           <Button
             label={buttonLabel}
             size={buttonSize}
@@ -153,9 +112,6 @@ export const Card = ({
           />
         </CardFooter>
       )}
-
-      {/* Custom footer */}
-      {footer && <CardFooter className={classNameFooter}>{footer}</CardFooter>}
     </ShadcnCard>
   );
 };

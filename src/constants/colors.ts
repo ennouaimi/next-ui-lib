@@ -1,4 +1,16 @@
-export const buttonColors = {
+
+export type ButtonColor = {
+  text: string;
+  value: string;
+  dark: string;
+};
+
+export type ButtonColorSet = {
+  primary: ButtonColor;
+  secondary: ButtonColor;
+};
+
+export const buttonColors: Record<string, ButtonColorSet> = {
   default: {
     primary: { text: 'var(--primary-text)', value: 'var(--primary)', dark: 'var(--primary-dark)' },
     secondary: { text: 'var(--secondary-text)', value: 'var(--secondary)', dark: 'var(--secondary-dark)' }
@@ -35,4 +47,3 @@ export const staticColors = {
   gray: { value: '#F1F1F1' }
 } as const;
 
-export type ButtonColor = keyof typeof buttonColors;

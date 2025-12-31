@@ -1,16 +1,20 @@
-import { buttonColors, type ButtonColor } from "../../constants/colors";
+import {
+  buttonColors,
+  ButtonColorSet,
+  type ButtonColor,
+} from "../../constants/colors";
 
 export interface ButtonProps {
   label: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  color?: ButtonColor;
+  color?: ButtonColorSet;
   variant?: "primary" | "secondary";
   size?: "small" | "medium" | "large" | "full";
   customClass?: string;
 }
 
 const Button = ({
-  color = "default",
+  color,
   onClick,
   label,
   size = "medium",
@@ -24,7 +28,18 @@ const Button = ({
     full: "px-8 py-2 text-xl rounded-2xl w-full",
   };
 
-  const colorSet = buttonColors[color];
+  const colorSet: ButtonColorSet = color ?? {
+    primary: {
+      text: "var(--primary-text)",
+      value: "var(--primary)",
+      dark: "var(--primary-dark)",
+    },
+    secondary: {
+      text: "var(--secondary-text)",
+      value: "var(--secondary)",
+      dark: "var(--secondary-dark)",
+    },
+  };
 
   return (
     <button
