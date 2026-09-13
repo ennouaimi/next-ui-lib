@@ -1,69 +1,149 @@
-# React + TypeScript + Vite
+# next-ui-lib
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A reusable React + TypeScript component library built for fast product development, with a playful visual style and a focus on simple, composable UI primitives.
 
-Currently, two official plugins are available:
+The library is developed with **Vite**, **Tailwind CSS** and **Storybook**, and ships typed React components that can be reused across applications.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Components
 
-## Expanding the ESLint configuration
+The current public API includes:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Button** — primary/secondary variants, multiple sizes and customizable colors
+- **Card** — reusable content container
+- **ProgressBar** — progress and completion states
+- **Toggle** — interactive boolean control
+- **WeekStreak** — weekly activity/streak visualization
+- **LeaderBoard** — ranked user/data display
+- **GraphBar** — bar-chart based data visualization
+- **BgIcon** — icon container/background primitive
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The repository also contains additional UI work such as emoji, checkbox and internal UI primitives.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Tech stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- Storybook
+- Vitest
+- Playwright
+- Lucide React
+- Nivo
+
+## Usage
+
+Import components from the library entry point and include the bundled stylesheet:
+
+```tsx
+import { Button, Card, ProgressBar } from "next-ui-lib";
+import "next-ui-lib/styles.css";
+
+export default function Example() {
+  return (
+    <Card>
+      <ProgressBar />
+      <Button
+        label="Continue"
+        variant="primary"
+        size="medium"
+        onClick={() => console.log("clicked")}
+      />
+    </Card>
+  );
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+`Button`, for example, supports `primary` and `secondary` variants as well as `small`, `medium`, `large` and `full` sizes.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Local development
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/ennouaimi/next-ui-lib.git
+cd next-ui-lib
+npm install
 ```
+
+Start the Vite development environment:
+
+```bash
+npm run dev
+```
+
+## Storybook
+
+Components are developed and documented in isolation with Storybook.
+
+```bash
+npm run storybook
+```
+
+Storybook runs locally on port `6006` by default.
+
+Build the static Storybook:
+
+```bash
+npm run build-storybook
+```
+
+## Build
+
+Create the production library bundle, TypeScript declarations and compiled Tailwind stylesheet:
+
+```bash
+npm run build
+```
+
+The generated package output is written to `dist/` and exposes:
+
+```text
+next-ui-lib
+├── dist/ui.es.js
+├── dist/ui.umd.js
+├── dist/index.d.ts
+└── dist/styles.css
+```
+
+## Development scripts
+
+```bash
+npm run dev             # Start Vite
+npm run build           # Build the library
+npm run lint            # Run ESLint
+npm run storybook       # Start Storybook
+npm run build-storybook # Build Storybook
+```
+
+## Project structure
+
+```text
+src/
+├── components/     # Reusable React components
+├── constants/      # Shared design constants
+├── fonts/          # Local font assets
+├── lib/            # Shared utilities
+├── index.ts        # Public component exports
+└── tailwind-entry.css
+```
+
+## Design goals
+
+`next-ui-lib` is meant to keep commonly reused UI patterns consistent across projects without turning the design system into a heavy framework.
+
+The main goals are:
+
+- reusable and strongly typed components
+- consistent styling and interaction patterns
+- fast integration into React applications
+- isolated component development through Storybook
+- a small, explicit public API
+
+## Contributing
+
+Contributions are welcome through pull requests. When adding or changing a component, keep the API focused and update or add its Storybook story where appropriate.
+
+---
+
+Built as a reusable UI foundation for shipping React products faster.
