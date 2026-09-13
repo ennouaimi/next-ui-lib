@@ -6,4 +6,4 @@ export * from "./components/weekStreak/weekStreak";
 export * from "./components/leaderboard/leaderboard";
 export * from "./components/graphBar/graphBar";
 export * from "./components/bgIcon/bgIcon";
-export * from "./components/indieTools/indieTools";
+export * from "./components/midnightSaaS/midnightSaaS";
