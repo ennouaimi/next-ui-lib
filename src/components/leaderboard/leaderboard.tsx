@@ -1,5 +1,6 @@
-import { ButtonColor, ColorName } from "../../constants/colors";
+import { ColorName } from "../../constants/colors";
 import { Card } from "../card";
+import type { ButtonProps } from "../button";
 
 export interface Profile {
   username: string;
@@ -12,7 +13,7 @@ export interface LeaderboardProps {
   profiles: Profile[];
   bgIconColor?: ColorName;
   loading?: boolean;
-  buttonColor?: ButtonColor;
+  buttonColor?: ButtonProps["color"];
   buttonLabel?: string | null;
   customClass?: string;
 }
@@ -48,7 +49,7 @@ const LeaderBoard = ({
             ))
           : profiles.map((profile, index) => (
               <article
-                key={index}
+                key={`${profile.username}-${index}`}
                 className={`flex items-center py-1 px-2 rounded-lg cursor-pointer ${
                   profile.selected
                     ? "border-2 border-[#ffd700] bg-[#ffecb3] hover:border-[#FFC200] hover:bg-[#FFE08A]"
@@ -57,11 +58,13 @@ const LeaderBoard = ({
               >
                 <p className="text-lg font-bold text-sec w-4">{index + 1}</p>
                 <div className="ml-2 w-10 h-10 bg-gray-300 rounded-full overflow-hidden">
-                  <img
-                    src={profile.avatarUrl}
-                    alt={`${profile.username} avatar`}
-                    className="inline select-none pointer-events-none object-cover"
-                  />
+                  {profile.avatarUrl && (
+                    <img
+                      src={profile.avatarUrl}
+                      alt={`${profile.username} avatar`}
+                      className="w-full h-full inline select-none pointer-events-none object-cover"
+                    />
+                  )}
                 </div>
                 <p className="ml-2 flex-grow text-lg font-gabaritoMedium text-sec">
                   {profile.username}
