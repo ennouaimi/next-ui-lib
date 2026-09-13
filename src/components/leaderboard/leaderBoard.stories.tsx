@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { LeaderBoard, Profile } from "./leaderBoard";
+import { LeaderBoard, Profile } from "./leaderboard";
 
 const dummyProfiles: Profile[] = [
   {
