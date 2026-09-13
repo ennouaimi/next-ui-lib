@@ -24,7 +24,7 @@ const dummyProfiles: Profile[] = [
 ];
 
 const meta = {
-  title: "Example/Leaderboard",
+  title: "Playful SaaS UI/Leaderboard",
   component: LeaderBoard,
   tags: ["docsPage"],
 } satisfies Meta<typeof LeaderBoard>;
