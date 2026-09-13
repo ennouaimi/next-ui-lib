@@ -7,9 +7,9 @@ import {
   CardFooter,
 } from "../ui/card";
 import { ReactNode } from "react";
-import { Button } from "../button";
+import { Button, type ButtonProps } from "../button";
 import { BgIcon } from "../bgIcon";
-import { ButtonColor, ColorName } from "@/constants/colors";
+import { ColorName } from "@/constants/colors";
 
 type CardProps = {
   title?: string;
@@ -18,7 +18,7 @@ type CardProps = {
   customClass?: string;
   button?: boolean;
   buttonLabel?: string | null;
-  buttonColor?: ButtonColor;
+  buttonColor?: ButtonProps["color"];
   buttonVariant?: "primary" | "secondary";
   bgIconColor?: ColorName;
   buttonPosition?: "top-right" | "bottom-right";
@@ -42,6 +42,7 @@ export const Card = ({
   onButtonClick,
 }: CardProps) => {
   const handleButtonClick = onButtonClick ?? (() => {});
+
   return (
     <ShadcnCard
       className={`
@@ -66,7 +67,7 @@ export const Card = ({
                 color={bgIconColor}
                 iconSrc={iconSrc}
                 onClick={() => {}}
-              ></BgIcon>
+              />
             )}
             <div>
               {title && (
