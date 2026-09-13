@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Toggle } from "./toggle";
 
 const meta = {
-  title: "Example/Toggle",
+  title: "Playful SaaS UI/Toggle",
   component: Toggle,
   tags: ["docsPage"],
 } satisfies Meta<typeof Toggle>;
