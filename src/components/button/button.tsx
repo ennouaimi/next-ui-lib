@@ -1,20 +1,21 @@
 import {
   buttonColors,
   ButtonColorSet,
-  type ButtonColor,
 } from "../../constants/colors";
+
+type ButtonColorName = keyof typeof buttonColors;
 
 export interface ButtonProps {
   label: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  color?: ButtonColorSet;
+  color?: ButtonColorSet | ButtonColorName;
   variant?: "primary" | "secondary";
   size?: "small" | "medium" | "large" | "full";
   customClass?: string;
 }
 
 const Button = ({
-  color,
+  color = "default",
   onClick,
   label,
   size = "medium",
@@ -28,42 +29,30 @@ const Button = ({
     full: "px-8 py-2 text-xl rounded-2xl w-full",
   };
 
-  const colorSet: ButtonColorSet = color ?? {
-    primary: {
-      text: "var(--primary-text)",
-      value: "var(--primary)",
-      dark: "var(--primary-dark)",
-    },
-    secondary: {
-      text: "var(--secondary-text)",
-      value: "var(--secondary)",
-      dark: "var(--secondary-dark)",
-    },
-  };
+  const colorSet: ButtonColorSet =
+    typeof color === "string"
+      ? buttonColors[color] ?? buttonColors.default
+      : color;
+
+  const activeColor = colorSet[variant];
+  const shadowDepth = size === "large" ? "6px" : "4px";
 
   return (
     <button
       className={`relative flex items-center justify-center cursor-pointer transition duration-150 ease-in-out whitespace-nowrap active:translate-y-[4px] ${sizeClasses[size]} ${customClass}`}
       style={{
-        backgroundColor:
-          variant == "primary"
-            ? colorSet.primary.value
-            : colorSet.secondary.value,
-        boxShadow: `0 ${size === "large" ? "6px" : "4px"} 0 ${
-          variant == "primary" ? colorSet.primary.dark : colorSet.secondary.dark
-        }`,
-        color:
-          variant == "primary"
-            ? colorSet.primary.text
-            : colorSet.secondary.text,
+        backgroundColor: activeColor.value,
+        boxShadow: `0 ${shadowDepth} 0 ${activeColor.dark}`,
+        color: activeColor.text,
       }}
       onMouseDown={(e) => {
         e.currentTarget.style.boxShadow = "none";
       }}
       onMouseUp={(e) => {
-        e.currentTarget.style.boxShadow = `0 4px 0 ${
-          variant == "primary" ? colorSet.primary.dark : colorSet.secondary.dark
-        }`;
+        e.currentTarget.style.boxShadow = `0 ${shadowDepth} 0 ${activeColor.dark}`;
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.boxShadow = `0 ${shadowDepth} 0 ${activeColor.dark}`;
       }}
       onClick={onClick}
     >
