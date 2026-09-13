@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Emoji } from "./emoji";
 
 const meta = {
-  title: "Assets/Emoji",
+  title: "Playful SaaS UI/Emoji",
   component: Emoji,
   tags: ["docsPage"],
 } satisfies Meta<typeof Emoji>;
