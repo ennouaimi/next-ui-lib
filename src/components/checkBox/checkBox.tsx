@@ -1,4 +1,5 @@
 import { colors, ColorName } from "../../constants/colors";
+import checkIcon from "../../assets/icons/check.svg";
 
 export interface CheckBoxProps {
   color?: ColorName;
@@ -13,7 +14,7 @@ const CheckBox = ({
   size = 20,
   loading = false,
 }: CheckBoxProps) => {
-  const colorSet = colors[color];
+  const colorSet = colors[color] ?? colors.default;
 
   if (loading) {
     return (
@@ -35,13 +36,13 @@ const CheckBox = ({
       style={{
         width: size,
         height: size,
-        backgroundColor: colorSet?.value,
-        borderColor: colorSet?.dark,
+        backgroundColor: colorSet.value,
+        borderColor: colorSet.dark,
       }}
     >
       <img
-        src="src/assets/icons/check.svg"
-        alt="Icon"
+        src={checkIcon}
+        alt="Checked"
         width={size * 0.8}
         height={size * 0.8}
         className="inline select-none pointer-events-none"
