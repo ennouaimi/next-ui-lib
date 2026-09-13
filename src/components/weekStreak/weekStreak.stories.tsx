@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { WeekStreak } from "./weekStreak";
 
 const meta = {
-  title: "Example/WeekStreak",
+  title: "Playful SaaS UI/WeekStreak",
   component: WeekStreak,
   tags: ["docsPage"],
 } satisfies Meta<typeof WeekStreak>;
