@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ProgressBar } from "./progressBar";
 
 const meta = {
-  title: "Example/ProgressBar",
+  title: "Playful SaaS UI/ProgressBar",
   component: ProgressBar,
   tags: ["docsPage"],
 } satisfies Meta<typeof ProgressBar>;
