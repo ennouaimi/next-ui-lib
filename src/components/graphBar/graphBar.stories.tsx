@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { GraphBar } from "./graphBar";
 
 const meta: Meta<typeof GraphBar> = {
-  title: "Components/GraphBar",
+  title: "Playful SaaS UI/GraphBar",
   component: GraphBar,
   argTypes: {
     data: { control: "object" },
